@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "curso-python"
+version = "0.1.0"
+description = "Entorno del curso Introducción a la Programación en Python"
+requires-python = ">=3.10"
+dependencies = [
+  "jupyterlab",
+  "notebook",
+  "ipykernel",
+  "rise",
+  "jupyterlab-rise",
+  "traitlets",
+  "packaging",
+  "numpy",
+  "matplotlib",
+  "pandas",
+]
