@@ -1,7 +1,7 @@
-# Curso: Python para Ciencias e Ingeniería
-## Clase 1 — Fundamentos de Python y pensamiento computacional
-**Fecha:** [completar]  
-**Instructor/a:** [completar]
+# Introducción a la Programación en Python
+## Python para Ciencias e Ingeniería
+**Fecha:** 19.01.2026  
+**Profesor:** Dr. Stefan Vogt
 
 ---
 
@@ -59,9 +59,16 @@ print(prom)
 ## 2. ¿Por qué Python? (5–10 min)
 - Interpretado: ejecuta línea por línea
 - Legible y expresivo
-- Usado en ciencia de datos e ingeniería
+- Usado en múltiples disciplinas y contextos
 - Gran ecosistema de librerías
 - Comparación breve: Python vs Fortran/C/MATLAB (más legible y flexible)
+- Ejemplos por área:
+  - Sociología: análisis de encuestas, limpieza de datos, reproducibilidad
+  - Economía: series de tiempo, indicadores, automatización de reportes
+  - Biología: tablas de datos experimentales, visualización básica
+  - Geociencias: datos espaciales (mención conceptual), procesamiento de archivos
+  - Química/Física: automatización de cálculos, procesamiento de resultados
+  - Ingeniería: scripts para tareas repetitivas, parsing de logs
 
 ---
 
@@ -238,11 +245,13 @@ print(x ** 2)
 ---
 
 ## 6. Primer ejemplo útil (10–15 min)
-**Programa:** promedio con nombre y 3 notas
+**Variantes sin librerías externas:**
+- Variante A (general): promedio con nombre y 3 notas
+- Variante B (datos tipo encuesta): conteo de categorías y porcentajes
 
 ----
 
-### Mini-demo 5: programa promedio
+### Mini-demo 5A: programa promedio (Variante A)
 **Objetivo:** integrar variables, input y formato.
 ```python
 nombre = input("Nombre: ")
@@ -256,6 +265,27 @@ print(f"{nombre}, tu promedio es {promedio:.2f}")
 **Output esperado:**
 ```
 Ana, tu promedio es 5.33
+```
+
+----
+
+### Mini-demo 5B: conteo de categorías (Variante B)
+**Objetivo:** contar respuestas y mostrar porcentajes.
+```python
+respuestas = ["A", "B", "A", "C", "B", "A"]
+categorias = ["A", "B", "C"]
+total = len(respuestas)
+
+for cat in categorias:
+    cantidad = respuestas.count(cat)
+    porcentaje = cantidad / total * 100
+    print(cat, cantidad, f"{porcentaje:.1f}%")
+```
+**Output esperado:**
+```
+A 3 50.0%
+B 2 33.3%
+C 1 16.7%
 ```
 
 ---
