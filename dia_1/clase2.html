@@ -212,32 +212,8 @@ Curso Python
 <section>
 <section id="clase-2-control-de-flujo-listas-y-bucles" class="title-slide slide level1 center">
 <h1>Clase 2 — Control de flujo, listas y bucles</h1>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p>Meta de la sesión (1:20): escribir programas que <strong>toman decisiones</strong> y <strong>repiten acciones</strong> sobre datos en listas, identificando errores comunes.</p>
-</div>
-</div>
-</div>
-<!-- 00:20–03:00 (2:40) -->
-</section>
-<section id="plan-de-trabajo" class="slide level2 center">
-<h2>Plan de trabajo</h2>
-<ul>
-<li class="fragment">Ciclos cortos: concepto → demo → micro-ejercicio<br>
-</li>
-<li class="fragment">Enfoque: escribir código <strong>correcto y legible</strong><br>
-</li>
-<li class="fragment">Regla práctica: si algo falla, aislamos el problema en una celda mínima</li>
-</ul>
 <aside class="notes">
-<p>Conectar con Clase 1: ya podemos calcular y formatear; hoy agregamos “decidir” y “repetir”.</p>
+<p>Meta de la sesión (1:20): escribir programas que <strong>toman decisiones</strong> y <strong>repiten acciones</strong> sobre datos en listas, identificando errores comunes.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -251,8 +227,8 @@ Curso Python
       }</style></aside>
 <!-- 03:00–06:00 (3:00) -->
 </section>
-<section id="objetivos-de-aprendizaje-al-finalizar" class="slide level2 center">
-<h2>Objetivos de aprendizaje (al finalizar)</h2>
+<section id="objetivos-de-aprendizaje" class="slide level2 center">
+<h2>Objetivos de aprendizaje</h2>
 <ol type="1">
 <li class="fragment">Usar <code>if / elif / else</code> para tomar decisiones<br>
 </li>
@@ -310,11 +286,17 @@ Curso Python
 </section>
 <section id="demo-decidir-según-un-umbral" class="slide level2 center">
 <h2>Demo: decidir según un umbral</h2>
-<div id="demo-if-umbral" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a>temp <span class="op">=</span> <span class="fl">38.2</span></span>
+<div id="demo-if-umbral" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a>temp <span class="op">=</span> <span class="fl">12.2</span></span>
 <span id="cb2-2"><a href=""></a></span>
-<span id="cb2-3"><a href=""></a><span class="cf">if</span> temp <span class="op">&gt;=</span> <span class="fl">37.8</span>:</span>
-<span id="cb2-4"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Alerta: temperatura alta"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-3"><a href=""></a>comparacion <span class="op">=</span> temp <span class="op">&gt;=</span> <span class="fl">37.8</span></span>
+<span id="cb2-4"><a href=""></a><span class="bu">print</span>(comparacion)</span>
+<span id="cb2-5"><a href=""></a></span>
+<span id="cb2-6"><a href=""></a><span class="cf">if</span> temp <span class="op">&gt;=</span> <span class="fl">37.8</span>:</span>
+<span id="cb2-7"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Alerta: temperatura alta"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>False</code></pre>
+</div>
 </div>
 <!-- 14:00–18:00 (4:00) -->
 </section>
@@ -339,52 +321,66 @@ Curso Python
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<div id="micro1-if-solucion" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>nota <span class="op">=</span> <span class="fl">3.9</span></span>
-<span id="cb3-2"><a href=""></a></span>
-<span id="cb3-3"><a href=""></a><span class="cf">if</span> nota <span class="op">&gt;=</span> <span class="fl">4.0</span>:</span>
-<span id="cb3-4"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Aprobado"</span>)</span>
-<span id="cb3-5"><a href=""></a><span class="cf">else</span>:</span>
-<span id="cb3-6"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Reprobado"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="micro1-if-solucion" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a>nota <span class="op">=</span> <span class="fl">7.0</span></span>
+<span id="cb4-2"><a href=""></a></span>
+<span id="cb4-3"><a href=""></a><span class="cf">if</span> nota <span class="op">&gt;=</span> <span class="fl">4.0</span>:</span>
+<span id="cb4-4"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Aprobado"</span>)</span>
+<span id="cb4-5"><a href=""></a><span class="cf">else</span>:</span>
+<span id="cb4-6"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Reprobado"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Aprobado</code></pre>
+</div>
 </div>
 <!-- 18:00–22:00 (4:00) -->
 </section>
 <section id="if-elif-else-más-de-una-alternativa" class="slide level2 center">
 <h2><code>if / elif / else</code>: más de una alternativa</h2>
 <p>Cuando hay varias categorías:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="cf">if</span> condicion_1:</span>
-<span id="cb4-2"><a href=""></a>    ...</span>
-<span id="cb4-3"><a href=""></a><span class="cf">elif</span> condicion_2:</span>
-<span id="cb4-4"><a href=""></a>    ...</span>
-<span id="cb4-5"><a href=""></a><span class="cf">else</span>:</span>
-<span id="cb4-6"><a href=""></a>    ...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="cf">if</span> condicion_1:</span>
+<span id="cb6-2"><a href=""></a>    ...</span>
+<span id="cb6-3"><a href=""></a><span class="cf">elif</span> condicion_2:</span>
+<span id="cb6-4"><a href=""></a>    ...</span>
+<span id="cb6-5"><a href=""></a><span class="cf">else</span>:</span>
+<span id="cb6-6"><a href=""></a>    ...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Regla: se ejecuta <strong>solo el primer bloque</strong> cuya condición sea verdadera.</p>
 <!-- 22:00–29:00 (7:00) -->
 </section>
 <section id="demo-clasificar-una-nota" class="slide level2 center">
 <h2>Demo: clasificar una nota</h2>
-<div id="demo-elif-notas" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>nota <span class="op">=</span> <span class="fl">5.6</span></span>
-<span id="cb5-2"><a href=""></a></span>
-<span id="cb5-3"><a href=""></a><span class="cf">if</span> nota <span class="op">&gt;=</span> <span class="fl">6.0</span>:</span>
-<span id="cb5-4"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Excelente"</span>)</span>
-<span id="cb5-5"><a href=""></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="demo-elif-notas" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>nota <span class="op">=</span> <span class="fl">3.0</span></span>
+<span id="cb7-2"><a href=""></a></span>
+<span id="cb7-3"><a href=""></a><span class="cf">if</span> nota <span class="op">&gt;=</span> <span class="fl">6.0</span>:</span>
+<span id="cb7-4"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Excelente"</span>)</span>
+<span id="cb7-5"><a href=""></a></span>
+<span id="cb7-6"><a href=""></a><span class="cf">elif</span> nota  <span class="op">&gt;=</span> <span class="fl">5.0</span>:</span>
+<span id="cb7-7"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Bueno"</span>)</span>
+<span id="cb7-8"><a href=""></a></span>
+<span id="cb7-9"><a href=""></a><span class="cf">elif</span> nota <span class="op">&gt;=</span> <span class="fl">4.0</span>:</span>
+<span id="cb7-10"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Ok"</span>)</span>
+<span id="cb7-11"><a href=""></a></span>
+<span id="cb7-12"><a href=""></a><span class="cf">else</span>:</span>
+<span id="cb7-13"><a href=""></a>    <span class="bu">print</span>(<span class="st">"malito... :("</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>malito... :(</code></pre>
+</div>
 </div>
 <!-- 22:00–29:00 (7:00) -->
 </section>
 <section id="demo-clasificar-una-nota-1" class="slide level2 center">
 <h2>Demo: clasificar una nota</h2>
 <div id="demo-elif-notas2" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>nota <span class="op">=</span> <span class="fl">5.6</span></span>
-<span id="cb6-2"><a href=""></a></span>
-<span id="cb6-3"><a href=""></a><span class="cf">if</span> nota <span class="op">&gt;=</span> <span class="fl">6.0</span>:</span>
-<span id="cb6-4"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Excelente"</span>)</span>
-<span id="cb6-5"><a href=""></a><span class="cf">elif</span> nota <span class="op">&gt;=</span> <span class="fl">5.0</span>:</span>
-<span id="cb6-6"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Bueno"</span>)</span>
-<span id="cb6-7"><a href=""></a><span class="cf">elif</span> nota <span class="op">&gt;=</span> <span class="fl">4.0</span>:</span>
-<span id="cb6-8"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Suficiente"</span>)</span>
-<span id="cb6-9"><a href=""></a><span class="cf">else</span>:</span>
-<span id="cb6-10"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Insuficiente"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>nota <span class="op">=</span> <span class="fl">5.6</span></span>
+<span id="cb9-2"><a href=""></a></span>
+<span id="cb9-3"><a href=""></a><span class="cf">if</span> nota <span class="op">&gt;=</span> <span class="fl">6.0</span>:</span>
+<span id="cb9-4"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Excelente"</span>)</span>
+<span id="cb9-5"><a href=""></a><span class="cf">elif</span> nota <span class="op">&gt;=</span> <span class="fl">5.0</span>:</span>
+<span id="cb9-6"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Bueno"</span>)</span>
+<span id="cb9-7"><a href=""></a><span class="cf">elif</span> nota <span class="op">&gt;=</span> <span class="fl">4.0</span>:</span>
+<span id="cb9-8"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Suficiente"</span>)</span>
+<span id="cb9-9"><a href=""></a><span class="cf">else</span>:</span>
+<span id="cb9-10"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Insuficiente"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Bueno</code></pre>
 </div>
@@ -413,14 +409,17 @@ Curso Python
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<div id="demo-and" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>nota <span class="op">=</span> <span class="fl">4.2</span></span>
-<span id="cb8-2"><a href=""></a>asistencia <span class="op">=</span> <span class="fl">0.70</span></span>
-<span id="cb8-3"><a href=""></a></span>
-<span id="cb8-4"><a href=""></a><span class="cf">if</span> (nota <span class="op">&gt;=</span> <span class="fl">4.0</span>) <span class="kw">and</span> (asistencia <span class="op">&gt;=</span> <span class="fl">0.75</span>):</span>
-<span id="cb8-5"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Aprobado"</span>)</span>
-<span id="cb8-6"><a href=""></a><span class="cf">else</span>:</span>
-<span id="cb8-7"><a href=""></a>    <span class="bu">print</span>(<span class="st">"No aprobado"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="demo-and" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a>nota <span class="op">=</span> <span class="fl">4.2</span></span>
+<span id="cb11-2"><a href=""></a>asistencia <span class="op">=</span> <span class="fl">0.70</span></span>
+<span id="cb11-3"><a href=""></a></span>
+<span id="cb11-4"><a href=""></a><span class="cf">if</span> (nota <span class="op">&gt;=</span> <span class="fl">4.0</span>) <span class="kw">and</span> (asistencia <span class="op">&gt;=</span> <span class="fl">0.75</span>):</span>
+<span id="cb11-5"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Aprobado"</span>)</span>
+<span id="cb11-6"><a href=""></a><span class="cf">else</span>:</span>
+<span id="cb11-7"><a href=""></a>    <span class="bu">print</span>(<span class="st">"No aprobado"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>No aprobado</code></pre>
+</div>
 </div>
 <!-- 40:00–44:00 (4:00) -->
 </section>
@@ -449,22 +448,36 @@ Curso Python
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<div id="errores-if-demo" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>x <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb9-2"><a href=""></a></span>
-<span id="cb9-3"><a href=""></a><span class="co"># Error 1: usar '=' en vez de '=='</span></span>
-<span id="cb9-4"><a href=""></a><span class="co"># if x = 10:</span></span>
-<span id="cb9-5"><a href=""></a><span class="co">#     print("x vale 10")</span></span>
-<span id="cb9-6"><a href=""></a></span>
-<span id="cb9-7"><a href=""></a><span class="co"># Error 2: indentación inconsistente</span></span>
-<span id="cb9-8"><a href=""></a><span class="co"># if x &gt; 5:</span></span>
-<span id="cb9-9"><a href=""></a><span class="co"># print("Mayor que 5")</span></span>
-<span id="cb9-10"><a href=""></a></span>
-<span id="cb9-11"><a href=""></a><span class="co"># Versión correcta:</span></span>
-<span id="cb9-12"><a href=""></a><span class="cf">if</span> x <span class="op">==</span> <span class="dv">10</span>:</span>
-<span id="cb9-13"><a href=""></a>    <span class="bu">print</span>(<span class="st">"x vale 10"</span>)</span>
-<span id="cb9-14"><a href=""></a><span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">5</span>:</span>
-<span id="cb9-15"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Mayor que 5"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="errores-if-demo" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a>x <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb13-2"><a href=""></a></span>
+<span id="cb13-3"><a href=""></a><span class="co"># Error 1: usar '=' en vez de '=='</span></span>
+<span id="cb13-4"><a href=""></a><span class="cf">if</span> x <span class="op">=</span> <span class="dv">10</span>:</span>
+<span id="cb13-5"><a href=""></a>    <span class="bu">print</span>(<span class="st">"x vale 10"</span>)</span>
+<span id="cb13-6"><a href=""></a></span>
+<span id="cb13-7"><a href=""></a><span class="co"># Error 2: indentación inconsistente</span></span>
+<span id="cb13-8"><a href=""></a><span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">5</span>:</span>
+<span id="cb13-9"><a href=""></a>  <span class="bu">print</span>(<span class="st">"Mayor que 5"</span>)</span>
+<span id="cb13-10"><a href=""></a>   <span class="bu">print</span>(<span class="st">"bien"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x vale 10
+Mayor que 5
+bien</code></pre>
+</div>
+</div>
+</section>
+<section id="correcta" class="slide level2 center">
+<h2>Correcta</h2>
+<div id="6f07e2d9-30c9-4517-bddd-94a4705ae359" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="co"># Versión correcta:</span></span>
+<span id="cb15-2"><a href=""></a><span class="cf">if</span> x <span class="op">==</span> <span class="dv">10</span>:</span>
+<span id="cb15-3"><a href=""></a>    <span class="bu">print</span>(<span class="st">"x vale 10"</span>)</span>
+<span id="cb15-4"><a href=""></a><span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">5</span>:</span>
+<span id="cb15-5"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Mayor que 5"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x vale 10
+Mayor que 5</code></pre>
+</div>
 </div>
 <!-- 49:00–52:00 (3:00) -->
 </section>
@@ -478,7 +491,7 @@ Curso Python
 <section id="listas-creación-indexado-longitud" class="slide level2 center">
 <h2>Listas: creación, indexado, longitud</h2>
 <p>Una lista agrupa valores en orden.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a>notas <span class="op">=</span> [<span class="fl">4.8</span>, <span class="fl">5.1</span>, <span class="fl">3.9</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a>notas <span class="op">=</span> [<span class="fl">4.8</span>, <span class="fl">5.1</span>, <span class="fl">3.9</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li class="fragment">Indexado empieza en <strong>0</strong></li>
 <li class="fragment"><code>len(notas)</code> entrega la cantidad de elementos</li>
@@ -487,31 +500,42 @@ Curso Python
 </section>
 <section id="demo-lista-básica" class="slide level2 center">
 <h2>Demo: lista básica</h2>
-<div id="demo-listas" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a>notas <span class="op">=</span> [<span class="fl">4.8</span>, <span class="fl">5.1</span>, <span class="fl">3.9</span>]</span>
-<span id="cb11-2"><a href=""></a></span>
-<span id="cb11-3"><a href=""></a><span class="bu">print</span>(notas)</span>
-<span id="cb11-4"><a href=""></a><span class="bu">print</span>(<span class="st">"Primera nota:"</span>, notas[<span class="dv">0</span>])</span>
-<span id="cb11-5"><a href=""></a><span class="bu">print</span>(<span class="st">"Última nota:"</span>, notas[<span class="dv">2</span>])</span>
-<span id="cb11-6"><a href=""></a><span class="bu">print</span>(<span class="st">"Cantidad:"</span>, <span class="bu">len</span>(notas))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="demo-listas" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a>notas <span class="op">=</span> [<span class="fl">4.8</span>, <span class="fl">5.1</span>, <span class="fl">3.9</span>]</span>
+<span id="cb18-2"><a href=""></a></span>
+<span id="cb18-3"><a href=""></a><span class="bu">print</span>(notas)</span>
+<span id="cb18-4"><a href=""></a><span class="bu">print</span>(<span class="st">"Primera nota:"</span>, notas[<span class="dv">0</span>])</span>
+<span id="cb18-5"><a href=""></a><span class="bu">print</span>(<span class="st">"Última nota:"</span>, notas[<span class="dv">2</span>])</span>
+<span id="cb18-6"><a href=""></a><span class="bu">print</span>(<span class="st">"Cantidad:"</span>, <span class="bu">len</span>(notas))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[4.8, 5.1, 3.9]
+Primera nota: 4.8
+Última nota: 3.9
+Cantidad: 3</code></pre>
+</div>
 </div>
 <!-- 62:00–65:00 (3:00) -->
 </section>
 <section id="bucle-for-sobre-listas" class="slide level2 center">
 <h2>Bucle <code>for</code> sobre listas</h2>
 <p>Patrón central:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a><span class="cf">for</span> elemento <span class="kw">in</span> lista:</span>
-<span id="cb12-2"><a href=""></a>    <span class="co"># usar elemento / processar elemento </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a><span class="cf">for</span> elemento <span class="kw">in</span> lista:</span>
+<span id="cb20-2"><a href=""></a>    <span class="co"># usar elemento / processar elemento </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Esto repite el bloque una vez por cada elemento.</p>
 <!-- 65:00–69:00 (4:00) -->
 </section>
 <section id="demo-recorrer-y-mostrar" class="slide level2 center">
 <h2>Demo: recorrer y mostrar</h2>
-<div id="demo-for-lista" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a>notas <span class="op">=</span> [<span class="fl">4.8</span>, <span class="fl">5.1</span>, <span class="fl">3.9</span>]</span>
-<span id="cb13-2"><a href=""></a></span>
-<span id="cb13-3"><a href=""></a><span class="cf">for</span> n <span class="kw">in</span> notas:</span>
-<span id="cb13-4"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Nota: </span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="demo-for-lista" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a>notas <span class="op">=</span> [<span class="fl">4.8</span>, <span class="fl">5.1</span>, <span class="fl">3.9</span>]</span>
+<span id="cb21-2"><a href=""></a></span>
+<span id="cb21-3"><a href=""></a><span class="cf">for</span> n <span class="kw">in</span> notas:</span>
+<span id="cb21-4"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Nota: </span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Nota: 4.8
+Nota: 5.1
+Nota: 3.9</code></pre>
+</div>
 </div>
 <!-- 69:00–76:00 (7:00) -->
 </section>
@@ -541,15 +565,24 @@ Curso Python
 </section>
 <section id="ejercicio-2-promedio-de-una-lista-1" class="slide level2 center">
 <h2>Ejercicio 2: promedio de una lista</h2>
-<div id="micro2-promedio-solucion" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a>notas <span class="op">=</span> [<span class="fl">4.0</span>, <span class="fl">5.5</span>, <span class="fl">6.1</span>, <span class="fl">3.8</span>, <span class="fl">4.7</span>]</span>
-<span id="cb14-2"><a href=""></a></span>
-<span id="cb14-3"><a href=""></a>suma <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb14-4"><a href=""></a><span class="cf">for</span> n <span class="kw">in</span> notas:</span>
-<span id="cb14-5"><a href=""></a>    suma <span class="op">=</span> suma <span class="op">+</span> n</span>
-<span id="cb14-6"><a href=""></a></span>
-<span id="cb14-7"><a href=""></a>prom <span class="op">=</span> suma <span class="op">/</span> <span class="bu">len</span>(notas)</span>
-<span id="cb14-8"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Promedio = </span><span class="sc">{</span>prom<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="micro2-promedio-solucion" class="cell" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href=""></a>notas <span class="op">=</span> [<span class="fl">4.0</span>, <span class="fl">5.5</span>, <span class="fl">6.1</span>, <span class="fl">3.8</span>, <span class="fl">4.7</span>]</span>
+<span id="cb23-2"><a href=""></a></span>
+<span id="cb23-3"><a href=""></a>suma <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb23-4"><a href=""></a><span class="cf">for</span> n <span class="kw">in</span> notas:</span>
+<span id="cb23-5"><a href=""></a>    <span class="bu">print</span>(suma)</span>
+<span id="cb23-6"><a href=""></a>    suma <span class="op">=</span> suma <span class="op">+</span> n</span>
+<span id="cb23-7"><a href=""></a></span>
+<span id="cb23-8"><a href=""></a>prom <span class="op">=</span> suma <span class="op">/</span> <span class="bu">len</span>(notas)</span>
+<span id="cb23-9"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Promedio = </span><span class="sc">{</span>prom<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0
+4.0
+9.5
+15.6
+19.4
+Promedio = 4.82</code></pre>
+</div>
 </div>
 <!-- 76:00–80:00 (4:00) -->
 </section>
@@ -565,18 +598,18 @@ Curso Python
 <section id="demo-contar-aprobados" class="slide level2 center">
 <h2>Demo: contar aprobados</h2>
 <p>Objetivo: contar cuántas notas son <code>&gt;= 4.0</code>.</p>
-</section>
-<section id="demo-contar-aprobados---resultado" class="slide level2 center">
-<h2>Demo: contar aprobados - resultado</h2>
-<div id="demo-contar-aprobados" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a>notas <span class="op">=</span> [<span class="fl">4.0</span>, <span class="fl">5.5</span>, <span class="fl">6.1</span>, <span class="fl">3.8</span>, <span class="fl">4.7</span>, <span class="fl">3.2</span>]</span>
-<span id="cb15-2"><a href=""></a></span>
-<span id="cb15-3"><a href=""></a>aprobados <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb15-4"><a href=""></a><span class="cf">for</span> n <span class="kw">in</span> notas:</span>
-<span id="cb15-5"><a href=""></a>    <span class="cf">if</span> n <span class="op">&gt;=</span> <span class="fl">4.0</span>:</span>
-<span id="cb15-6"><a href=""></a>        aprobados <span class="op">=</span> aprobados <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb15-7"><a href=""></a></span>
-<span id="cb15-8"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Aprobados: </span><span class="sc">{</span>aprobados<span class="sc">}</span><span class="ss"> de </span><span class="sc">{</span><span class="bu">len</span>(notas)<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="5c0a178f-58e2-4628-a735-c96997b29fd4" class="cell" data-execution_count="30">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href=""></a>notas <span class="op">=</span> [<span class="fl">4.0</span>, <span class="fl">5.5</span>, <span class="fl">6.1</span>, <span class="fl">3.8</span>, <span class="fl">4.7</span>, <span class="fl">3.2</span>]</span>
+<span id="cb25-2"><a href=""></a></span>
+<span id="cb25-3"><a href=""></a>aprobados <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb25-4"><a href=""></a><span class="cf">for</span> n <span class="kw">in</span> notas:</span>
+<span id="cb25-5"><a href=""></a>    <span class="cf">if</span> n <span class="op">&gt;=</span> <span class="fl">4.0</span>:</span>
+<span id="cb25-6"><a href=""></a>        aprobados <span class="op">=</span> aprobados <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb25-7"><a href=""></a></span>
+<span id="cb25-8"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Aprobados: </span><span class="sc">{</span>aprobados<span class="sc">}</span><span class="ss"> de </span><span class="sc">{</span><span class="bu">len</span>(notas)<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Aprobados: 4 de 6</code></pre>
+</div>
 </div>
 <!-- 86:00–98:00 (12:00) -->
 </section>
@@ -586,12 +619,23 @@ Curso Python
 <ul>
 <li class="fragment">Si una temperatura es <strong>≥ 37.8</strong>, cuenta como “alta”</li>
 </ul>
-<p>Queremos: 1. cuántas altas hay<br>
-2. el máximo valor observado<br>
-3. un mensaje final según condición</p>
-<p>Reglas del mensaje: - Si hay <strong>0</strong> altas → “Sin alerta” - Si hay <strong>1 o 2</strong> altas → “Vigilar” - Si hay <strong>3 o más</strong> → “Alerta”</p>
-<p>Datos (simulados, sin <code>input()</code>):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a>temps <span class="op">=</span> [<span class="fl">36.5</span>, <span class="fl">37.2</span>, <span class="fl">38.1</span>, <span class="fl">37.9</span>, <span class="fl">36.8</span>, <span class="fl">38.4</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li class="fragment">cuántas altas hay<br>
+</li>
+<li class="fragment">el máximo valor observado<br>
+</li>
+<li class="fragment">un mensaje final según condición</li>
+</ol>
+<ul>
+<li class="fragment"><p>Reglas del mensaje:</p>
+<ul>
+<li class="fragment">Si hay <strong>0</strong> altas → “Sin alerta”</li>
+<li class="fragment">Si hay <strong>1 o 2</strong> altas → “Vigilar”</li>
+<li class="fragment">Si hay <strong>3 o más</strong> → “Alerta”</li>
+</ul></li>
+</ul>
+<p>Datos:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href=""></a>temps <span class="op">=</span> [<span class="fl">36.5</span>, <span class="fl">37.2</span>, <span class="fl">38.1</span>, <span class="fl">37.9</span>, <span class="fl">36.8</span>, <span class="fl">38.4</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <aside class="notes">
 <p>Este problema integra: lista, for, if/elif/else y comparaciones. Dar ~6 minutos, luego mostrar solución.</p>
 <style type="text/css">
@@ -606,27 +650,27 @@ Curso Python
           display:block!important;
       }</style></aside>
 <div id="integrador-solucion" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a>temps <span class="op">=</span> [<span class="fl">36.5</span>, <span class="fl">37.2</span>, <span class="fl">38.1</span>, <span class="fl">37.9</span>, <span class="fl">36.8</span>, <span class="fl">38.4</span>]</span>
-<span id="cb17-2"><a href=""></a></span>
-<span id="cb17-3"><a href=""></a>altas <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb17-4"><a href=""></a>max_temp <span class="op">=</span> temps[<span class="dv">0</span>]</span>
-<span id="cb17-5"><a href=""></a></span>
-<span id="cb17-6"><a href=""></a><span class="cf">for</span> t <span class="kw">in</span> temps:</span>
-<span id="cb17-7"><a href=""></a>    <span class="cf">if</span> t <span class="op">&gt;=</span> <span class="fl">37.8</span>:</span>
-<span id="cb17-8"><a href=""></a>        altas <span class="op">=</span> altas <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb17-9"><a href=""></a>    <span class="cf">if</span> t <span class="op">&gt;</span> max_temp:</span>
-<span id="cb17-10"><a href=""></a>        max_temp <span class="op">=</span> t</span>
-<span id="cb17-11"><a href=""></a></span>
-<span id="cb17-12"><a href=""></a><span class="cf">if</span> altas <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb17-13"><a href=""></a>    estado <span class="op">=</span> <span class="st">"Sin alerta"</span></span>
-<span id="cb17-14"><a href=""></a><span class="cf">elif</span> altas <span class="op">&lt;=</span> <span class="dv">2</span>:</span>
-<span id="cb17-15"><a href=""></a>    estado <span class="op">=</span> <span class="st">"Vigilar"</span></span>
-<span id="cb17-16"><a href=""></a><span class="cf">else</span>:</span>
-<span id="cb17-17"><a href=""></a>    estado <span class="op">=</span> <span class="st">"Alerta"</span></span>
-<span id="cb17-18"><a href=""></a></span>
-<span id="cb17-19"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Altas: </span><span class="sc">{</span>altas<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb17-20"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Máxima: </span><span class="sc">{</span>max_temp<span class="sc">:.1f}</span><span class="ss"> °C"</span>)</span>
-<span id="cb17-21"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Estado: </span><span class="sc">{</span>estado<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href=""></a>temps <span class="op">=</span> [<span class="fl">36.5</span>, <span class="fl">37.2</span>, <span class="fl">38.1</span>, <span class="fl">37.9</span>, <span class="fl">36.8</span>, <span class="fl">38.4</span>]</span>
+<span id="cb28-2"><a href=""></a></span>
+<span id="cb28-3"><a href=""></a>altas <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb28-4"><a href=""></a>max_temp <span class="op">=</span> temps[<span class="dv">0</span>]</span>
+<span id="cb28-5"><a href=""></a></span>
+<span id="cb28-6"><a href=""></a><span class="cf">for</span> t <span class="kw">in</span> temps:</span>
+<span id="cb28-7"><a href=""></a>    <span class="cf">if</span> t <span class="op">&gt;=</span> <span class="fl">37.8</span>:</span>
+<span id="cb28-8"><a href=""></a>        altas <span class="op">=</span> altas <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb28-9"><a href=""></a>    <span class="cf">if</span> t <span class="op">&gt;</span> max_temp:</span>
+<span id="cb28-10"><a href=""></a>        max_temp <span class="op">=</span> t</span>
+<span id="cb28-11"><a href=""></a></span>
+<span id="cb28-12"><a href=""></a><span class="cf">if</span> altas <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb28-13"><a href=""></a>    estado <span class="op">=</span> <span class="st">"Sin alerta"</span></span>
+<span id="cb28-14"><a href=""></a><span class="cf">elif</span> altas <span class="op">&lt;=</span> <span class="dv">2</span>:</span>
+<span id="cb28-15"><a href=""></a>    estado <span class="op">=</span> <span class="st">"Vigilar"</span></span>
+<span id="cb28-16"><a href=""></a><span class="cf">else</span>:</span>
+<span id="cb28-17"><a href=""></a>    estado <span class="op">=</span> <span class="st">"Alerta"</span></span>
+<span id="cb28-18"><a href=""></a></span>
+<span id="cb28-19"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Altas: </span><span class="sc">{</span>altas<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb28-20"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Máxima: </span><span class="sc">{</span>max_temp<span class="sc">:.1f}</span><span class="ss"> °C"</span>)</span>
+<span id="cb28-21"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Estado: </span><span class="sc">{</span>estado<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <!-- 98:00–104:00 (6:00) -->
 </section>
