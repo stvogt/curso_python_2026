@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="clase5_files/libs/clipboard/clipboard.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="clase5_files/libs/clipboard/clipboard.min.js"></script>
 <script src="clase5_files/libs/quarto-html/tabby.min.js"></script>
 <script src="clase5_files/libs/quarto-html/popper.min.js"></script>
 <script src="clase5_files/libs/quarto-html/tippy.umd.min.js"></script>
@@ -9,7 +9,7 @@
 <link href="clase5_files/libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.27">
 
-  <meta name="author" content="Curso Python">
+  <meta name="author" content="Dr.&nbsp;Stefan Vogt Geisse">
   <title>Introducción a la Programación en Python</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -187,6 +187,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -194,12 +197,12 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Introducción a la Programación en Python</h1>
-  <p class="subtitle">Clase 5 — Módulos e importación: de llamar funciones a gestionar herramientas</p>
+  <p class="subtitle">Clase 5 — Módulos</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Curso Python 
+Dr.&nbsp;Stefan Vogt Geisse 
 </div>
 </div>
 </div>
@@ -210,8 +213,8 @@ Curso Python
 <!-- 00:00–02:00 (2 min) -->
 </section>
 <section>
-<section id="clase-5-módulos-panorama-práctico" class="title-slide slide level1 center">
-<h1>Clase 5 — Módulos (panorama práctico)</h1>
+<section id="clase-5-módulos" class="title-slide slide level1 center">
+<h1>Clase 5 — Módulos</h1>
 <p>Hoy: ver módulos como <strong>cajas de herramientas</strong>.</p>
 <ul>
 <li class="fragment">Biblioteca estándar (viene con Python)</li>
@@ -220,11 +223,11 @@ Curso Python
 </ul>
 <!-- 02:00–04:00 (2 min) -->
 </section>
-<section id="ruta-de-la-clase-1h20" class="slide level2 center">
-<h2>Ruta de la clase (1h20)</h2>
+<section id="objetivos" class="slide level2 center">
+<h2>Objetivos</h2>
 <ol type="1">
-<li class="fragment">Importar funciones (muy breve) con <code>math</code></li>
-<li class="fragment">Instalar módulos externos con <code>pip</code> (desde Jupyter)</li>
+<li class="fragment">Importar funciones con <code>math</code></li>
+<li class="fragment">Instalar módulos externos con <code>pip</code></li>
 <li class="fragment">Núcleo: <strong>NumPy</strong> (<code>range</code> vs <code>linspace</code>)</li>
 <li class="fragment">Demos cortos: <code>turtle</code>, <code>psychopy</code>, <code>Pillow</code>, <code>folium</code></li>
 <li class="fragment">Cierre: cómo elegir el módulo adecuado</li>
@@ -237,14 +240,14 @@ Curso Python
 <blockquote>
 <p><strong>un archivo lleno de funciones</strong> (y a veces otras cosas)</p>
 </blockquote>
-<p>Ya lo viste con: - <code>math</code> (estándar) - <code>utilidades.py</code> (local, hecho por nosotros)</p>
+<p>Ya lo vimos con: - <code>math</code> (estándar)</p>
 <!-- 06:00–08:00 (2 min) -->
 </section>
 <section id="importar-funciones-dos-formas-comunes" class="slide level2 center">
 <h2>Importar funciones: dos formas comunes</h2>
-<h3 id="importar-solo-lo-que-usarás">1) Importar solo lo que usarás</h3>
+<h4 id="importar-solo-lo-que-usarás">1) Importar solo lo que usarás</h4>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">from</span> math <span class="im">import</span> sin</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<h3 id="importar-todo-mala-idea">2) Importar todo (mala idea)</h3>
+<h4 id="importar-todo-mala-idea">2) Importar todo (mala idea)</h4>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="im">from</span> math <span class="im">import</span> <span class="op">*</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Por qué es mala idea:</strong> “ensucia” el espacio de nombres y dificulta leer el código (colisiones de nombres).</p>
 <!-- 08:00–12:00 (4 min) -->
@@ -253,16 +256,16 @@ Curso Python
 <h2>Demo breve con <code>math</code></h2>
 <p>Usaremos <code>sin</code> para calcular una señal simple (en radianes).</p>
 <div id="fb883b65" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="im">from</span> math <span class="im">import</span> sin</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="im">import</span> math </span>
 <span id="cb3-2"><a href=""></a></span>
 <span id="cb3-3"><a href=""></a>valores <span class="op">=</span> [<span class="fl">0.0</span>, <span class="fl">0.5</span>, <span class="fl">1.0</span>, <span class="fl">1.5</span>]</span>
 <span id="cb3-4"><a href=""></a><span class="cf">for</span> x <span class="kw">in</span> valores:</span>
-<span id="cb3-5"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"x=</span><span class="sc">{</span>x<span class="sc">:.1f}</span><span class="ss">  sin(x)=</span><span class="sc">{</span>sin(x)<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-5"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"x=</span><span class="sc">{</span>x<span class="sc">:.1f}</span><span class="ss">  sin(x)=</span><span class="sc">{</span>math<span class="sc">.</span>sin(x)<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <!-- 12:00–14:00 (2 min) -->
 </section>
-<section id="nota-from-math-import-solo-para-reconocerlo" class="slide level2 center">
-<h2>Nota: <code>from math import *</code> (solo para reconocerlo)</h2>
+<section id="nota-from-math-import" class="slide level2 center">
+<h2>Nota: <code>from math import *</code></h2>
 <p>Lo verás en internet, pero <strong>evítalo</strong>.</p>
 <p>En este curso priorizamos que el código sea: - legible - fácil de revisar - fácil de mantener</p>
 <!-- 14:00–18:00 (4 min) -->
@@ -281,18 +284,38 @@ Curso Python
 <span id="cb5-2"><a href=""></a><span class="co"># Nota: puede requerir conexión a internet y permisos del entorno.</span></span>
 <span id="cb5-3"><a href=""></a><span class="co"># Ejecuta solo si ves ModuleNotFoundError en imports posteriores.</span></span>
 <span id="cb5-4"><a href=""></a></span>
-<span id="cb5-5"><a href=""></a><span class="co"># !pip install numpy</span></span>
-<span id="cb5-6"><a href=""></a><span class="co"># !pip install psychopy</span></span>
-<span id="cb5-7"><a href=""></a><span class="co"># !pip install pillow</span></span>
-<span id="cb5-8"><a href=""></a><span class="co"># !pip install folium</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-5"><a href=""></a><span class="co"># !pip install numpy psychopy pillow folium</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<!-- 16:00–18:00 (2 min) -->
+</section>
+<section id="numpy-historia-y-features" class="slide level2 center">
+<h2>NumPy: Historia y “Features”</h2>
+<p><strong>NumPy</strong> es el módulo base para <strong>cálculo numérico</strong> en Python.</p>
+<ul>
+<li class="fragment">Aparece en <strong>2005</strong> (Travis Oliphant) para trabajar con <strong>muchos números de forma eficiente</strong></li>
+<li class="fragment">Introduce los <strong>arreglos numéricos (<code>ndarray</code>)</strong></li>
+<li class="fragment">Es la base de todo el ecosistema científico<br>
+<em>(SciPy, Pandas, Matplotlib, machine learning)</em></li>
+</ul>
+<div class="fragment">
+<p><strong>Applicaciones principales:</strong></p>
+<ul>
+<li class="fragment">Arreglos de números <strong>homogéneos</strong></li>
+<li class="fragment">Operaciones matemáticas <strong>vectorizadas</strong> (sin <code>for</code>)</li>
+<li class="fragment">Mucho más <strong>rápido</strong> que listas de Python</li>
+</ul>
 </div>
 <!-- 18:00–20:00 (2 min) -->
 </section></section>
 <section>
 <section id="numpy-números-y-arreglos" class="title-slide slide level1 center">
 <h1>NumPy: números y arreglos</h1>
-<p>Objetivo: generar listas/arreglos de valores para cálculos.</p>
-<p>Dos ideas: - <code>range(...)</code> → enteros con paso fijo - <code>np.linspace(a, b, n)</code> → <strong>n puntos</strong> igualmente espaciados (floats)</p>
+<p><strong>Objetivo</strong>: generar listas/arreglos de valores para cálculos.</p>
+<p>Dos ideas:</p>
+<ul>
+<li class="fragment"><code>range(...)</code> → enteros con paso fijo</li>
+<li class="fragment"><code>np.linspace(a, b, n)</code> → <strong>n puntos</strong> igualmente espaciados (floats)</li>
+</ul>
 <!-- 20:00–26:00 (6 min) -->
 </section>
 <section id="range-útil-para-contar-y-repetir" class="slide level2 center">
@@ -304,7 +327,7 @@ Curso Python
 </ul>
 <p>Ejemplo: 0, 2, 4, 6, 8</p>
 <div id="991e8533" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">1</span>):</span>
 <span id="cb6-2"><a href=""></a>    <span class="bu">print</span>(k)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <!-- 26:00–34:00 (8 min) -->
@@ -323,6 +346,10 @@ Curso Python
 <span id="cb7-4"><a href=""></a><span class="cf">for</span> x <span class="kw">in</span> xs:</span>
 <span id="cb7-5"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>x<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<div id="a187a29c-45a4-45a3-a155-aaf62b6bbc32" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>array_largo <span class="op">=</span> np.linspace(<span class="fl">0.0</span>, <span class="dv">10000</span>, <span class="dv">1000</span>)</span>
+<span id="cb8-2"><a href=""></a>array_largo</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <!-- 34:00–40:00 (6 min) -->
 </section>
 <section id="comparación-directa-range-vs-linspace" class="slide level2 center">
@@ -333,154 +360,378 @@ Curso Python
 </blockquote>
 <p>Veamos ambos en un ejemplo lado a lado.</p>
 <div id="14f8e931" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb8-2"><a href=""></a></span>
-<span id="cb8-3"><a href=""></a><span class="co"># 6 enteros desde 0 a 5</span></span>
-<span id="cb8-4"><a href=""></a>a <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">6</span>))</span>
-<span id="cb8-5"><a href=""></a></span>
-<span id="cb8-6"><a href=""></a><span class="co"># 6 puntos igualmente espaciados entre 0 y 5</span></span>
-<span id="cb8-7"><a href=""></a>b <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
-<span id="cb8-8"><a href=""></a></span>
-<span id="cb8-9"><a href=""></a><span class="bu">print</span>(<span class="st">"range -&gt;"</span>, a)</span>
-<span id="cb8-10"><a href=""></a><span class="bu">print</span>(<span class="st">"linspace -&gt;"</span>, [<span class="bu">float</span>(x) <span class="cf">for</span> x <span class="kw">in</span> b])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb9-2"><a href=""></a></span>
+<span id="cb9-3"><a href=""></a><span class="co"># 6 enteros desde 0 a 5</span></span>
+<span id="cb9-4"><a href=""></a>a <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">6</span>))</span>
+<span id="cb9-5"><a href=""></a></span>
+<span id="cb9-6"><a href=""></a><span class="co"># 6 puntos igualmente espaciados entre 0 y 5</span></span>
+<span id="cb9-7"><a href=""></a>b <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb9-8"><a href=""></a></span>
+<span id="cb9-9"><a href=""></a><span class="bu">print</span>(<span class="st">"range -&gt;"</span>, a)</span>
+<span id="cb9-10"><a href=""></a><span class="bu">print</span>(<span class="st">"linspace -&gt;"</span>, [<span class="bu">float</span>(x) <span class="cf">for</span> x <span class="kw">in</span> b])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <!-- 40:00–50:00 (10 min) -->
 </section>
-<section id="microejercicio-numpy-muestreo-y-conteo" class="slide level2 center">
-<h2>Micro‑ejercicio (NumPy): muestreo y conteo</h2>
+<section id="ejercicio-muestreo-y-conteo" class="slide level2 center">
+<h2>Ejercicio: muestreo y conteo</h2>
 <ol type="1">
 <li class="fragment">Crea <code>xs = np.linspace(0, 10, 11)</code> (11 puntos entre 0 y 10).</li>
 <li class="fragment">Recorre <code>xs</code> con un <code>for</code>.</li>
 <li class="fragment">Cuenta cuántos valores cumplen: <code>x &gt;= 3</code> y <code>x &lt;= 7</code>.</li>
 </ol>
 <p>Pista: usa un acumulador <code>conteo = 0</code> y un <code>if</code>.</p>
+</section>
+<section id="solución" class="slide level2 center">
+<h2>Solución:</h2>
 <div id="0d247753" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="co"># Tu código aquí</span></span>
-<span id="cb9-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb9-3"><a href=""></a></span>
-<span id="cb9-4"><a href=""></a><span class="co"># xs = ...</span></span>
-<span id="cb9-5"><a href=""></a><span class="co"># conteo = 0</span></span>
-<span id="cb9-6"><a href=""></a><span class="co"># for x in xs:</span></span>
-<span id="cb9-7"><a href=""></a><span class="co">#     if ...:</span></span>
-<span id="cb9-8"><a href=""></a><span class="co">#         conteo = conteo + 1</span></span>
-<span id="cb9-9"><a href=""></a><span class="co"># print(conteo)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a>xd <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">11</span>)</span>
+<span id="cb10-2"><a href=""></a></span>
+<span id="cb10-3"><a href=""></a>conteo <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb10-4"><a href=""></a></span>
+<span id="cb10-5"><a href=""></a><span class="cf">for</span> x <span class="kw">in</span> xd:</span>
+<span id="cb10-6"><a href=""></a>    <span class="cf">if</span> x <span class="op">&gt;=</span><span class="dv">3</span> <span class="kw">and</span> x<span class="op">&lt;=</span><span class="dv">7</span>:</span>
+<span id="cb10-7"><a href=""></a>        conteo <span class="op">=</span> conteo <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb10-8"><a href=""></a>    </span>
+<span id="cb10-9"><a href=""></a><span class="bu">print</span>(<span class="ss">f"conteo final : </span><span class="sc">{</span>conteo<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <!-- 50:00–54:00 (4 min) -->
 </section>
-<section id="solución-microejercicio" class="slide level2 center">
-<h2>Solución (micro‑ejercicio)</h2>
+<section id="solución-1" class="slide level2 center">
+<h2>Solución</h2>
 <div id="393f025d" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb10-2"><a href=""></a></span>
-<span id="cb10-3"><a href=""></a>xs <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">11</span>)</span>
-<span id="cb10-4"><a href=""></a>conteo <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb10-5"><a href=""></a><span class="cf">for</span> x <span class="kw">in</span> xs:</span>
-<span id="cb10-6"><a href=""></a>    <span class="cf">if</span> (x <span class="op">&gt;=</span> <span class="dv">3</span>) <span class="kw">and</span> (x <span class="op">&lt;=</span> <span class="dv">7</span>):</span>
-<span id="cb10-7"><a href=""></a>        conteo <span class="op">=</span> conteo <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb10-8"><a href=""></a></span>
-<span id="cb10-9"><a href=""></a><span class="bu">print</span>(<span class="st">"conteo ="</span>, conteo)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb11-2"><a href=""></a></span>
+<span id="cb11-3"><a href=""></a>xs <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">11</span>)</span>
+<span id="cb11-4"><a href=""></a>conteo <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb11-5"><a href=""></a><span class="cf">for</span> x <span class="kw">in</span> xs:</span>
+<span id="cb11-6"><a href=""></a>    <span class="cf">if</span> (x <span class="op">&gt;=</span> <span class="dv">3</span>) <span class="kw">and</span> (x <span class="op">&lt;=</span> <span class="dv">7</span>):</span>
+<span id="cb11-7"><a href=""></a>        conteo <span class="op">=</span> conteo <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb11-8"><a href=""></a></span>
+<span id="cb11-9"><a href=""></a><span class="bu">print</span>(<span class="st">"conteo ="</span>, conteo)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<!-- 54:00–56:00 (2 min) -->
+<!-- 54:00–58:00 (4 min) -->
+</section>
+<section id="numpy-demo-regresión-lineal" class="slide level2 center">
+<h2>NumPy demo: regresión lineal</h2>
+<p>Queremos ajustar una recta:</p>
+<p><span class="math display">\[ m x + b \]</span></p>
+<p>a un conjunto de puntos ((x, y)).</p>
+<ul>
+<li class="fragment">generar datos con <code>np.linspace</code></li>
+<li class="fragment">calcular <code>m</code> y <code>b</code> con una fórmula (sin magia)</li>
+</ul>
+<!-- 58:00–64:00 (6 min) -->
+</section>
+<section id="regresión-lineal-demo-mínimo" class="slide level2 center">
+<h2>Regresión lineal: demo mínimo</h2>
+<ol type="1">
+<li class="fragment">Generamos datos (con una tendencia lineal)<br>
+</li>
+<li class="fragment">Calculamos el ajuste (m, b)<br>
+</li>
+<li class="fragment">Usamos la recta para predecir valores</li>
+</ol>
+<div id="47a46daa" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb12-2"><a href=""></a></span>
+<span id="cb12-3"><a href=""></a><span class="co"># 1. Datos</span></span>
+<span id="cb12-4"><a href=""></a>x <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb12-5"><a href=""></a>y <span class="op">=</span> np.array([<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb12-6"><a href=""></a></span>
+<span id="cb12-7"><a href=""></a><span class="co"># 2. Regresión Lineal (Ajuste de grado 1)</span></span>
+<span id="cb12-8"><a href=""></a>m, b <span class="op">=</span> np.polyfit(x, y, <span class="dv">1</span>)</span>
+<span id="cb12-9"><a href=""></a></span>
+<span id="cb12-10"><a href=""></a><span class="co"># 3. Salida</span></span>
+<span id="cb12-11"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Ecuación: y = </span><span class="sc">{</span>m<span class="sc">:.2f}</span><span class="ss">x + </span><span class="sc">{</span>b<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<!-- 14:00–16:00 (2 min) -->
 </section></section>
 <section>
-<section id="demos-cortos-módulos-por-dominio" class="title-slide slide level1 center">
-<h1>Demos cortos: módulos por dominio</h1>
-<p>Ahora: ver rápidamente qué habilita cada módulo.</p>
-<p>Regla de hoy: - <strong>un ejemplo mínimo</strong> - sin entrar en detalles de API</p>
-<!-- 56:00–61:00 (5 min) -->
+<section id="módulos-externos-en-python" class="title-slide slide level1 center">
+<h1>Módulos externos en Python</h1>
+<p>Python tiene un <strong>ecosistema enorme</strong> de módulos.</p>
+<ul>
+<li class="fragment"><strong>Cientos de miles</strong> de módulos disponibles (PyPI)</li>
+<li class="fragment">Extienden Python para casi cualquier tarea</li>
+</ul>
+<div class="fragment">
+<p><strong>¿Por qué existen tantos?</strong></p>
+<ul>
+<li class="fragment">El código se puede <strong>reutilizar</strong></li>
+<li class="fragment">Es fácil <strong>compartir soluciones</strong></li>
+<li class="fragment">Muchas personas construyen herramientas para otros</li>
+</ul>
+<blockquote>
+<p>Python crece porque su comunidad escribe módulos.</p>
+</blockquote>
+</div>
+<!-- 64:00–66:00 (2 min) -->
 </section>
-<section id="turtle-biblioteca-estándar" class="slide level2 center">
-<h2><code>turtle</code> (biblioteca estándar)</h2>
-<p>Sirve para: - dibujo simple - geometría visual - pensamiento paso a paso</p>
-<p>Ejemplo: dibujar un cuadrado.</p>
+<section id="turtle-para-qué-sirve" class="slide level2 center">
+<h2><code>turtle</code> — ¿para qué sirve?</h2>
+<ul>
+<li class="fragment">Dibujo simple</li>
+<li class="fragment">Geometría visual</li>
+<li class="fragment">Pensamiento paso a paso (ver el efecto de cada instrucción)</li>
+</ul>
+<!-- 66:00–70:00 (4 min) -->
+</section>
+<section id="turtle-ejemplo-mínimo" class="slide level2 center">
+<h2><code>turtle</code> — ejemplo mínimo</h2>
+<p>Dibujamos un cuadrado con un <code>for</code>.</p>
 <div id="160532e2" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a><span class="im">import</span> turtle</span>
-<span id="cb11-2"><a href=""></a></span>
-<span id="cb11-3"><a href=""></a>t <span class="op">=</span> turtle.Turtle()</span>
-<span id="cb11-4"><a href=""></a>t.speed(<span class="dv">6</span>)</span>
-<span id="cb11-5"><a href=""></a></span>
-<span id="cb11-6"><a href=""></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
-<span id="cb11-7"><a href=""></a>    t.forward(<span class="dv">80</span>)</span>
-<span id="cb11-8"><a href=""></a>    t.left(<span class="dv">90</span>)</span>
-<span id="cb11-9"><a href=""></a></span>
-<span id="cb11-10"><a href=""></a>turtle.done()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<!-- 61:00–66:00 (5 min) -->
-</section>
-<section id="psychopy-módulo-externo" class="slide level2 center">
-<h2><code>psychopy</code> (módulo externo)</h2>
-<p>Sirve para: - experimentos en psicología - estímulos visuales/sonoros y control de tiempos</p>
-<p>Nota: puede requerir instalación y un entorno gráfico compatible. Ejemplo mínimo: ventana + texto.</p>
-<div id="01f1b9fd" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a><span class="co"># Ejecuta solo si psychopy está instalado y tienes entorno gráfico.</span></span>
-<span id="cb12-2"><a href=""></a><span class="co"># !pip install psychopy</span></span>
-<span id="cb12-3"><a href=""></a></span>
-<span id="cb12-4"><a href=""></a><span class="im">from</span> psychopy <span class="im">import</span> visual, core</span>
-<span id="cb12-5"><a href=""></a></span>
-<span id="cb12-6"><a href=""></a>win <span class="op">=</span> visual.Window(size<span class="op">=</span>(<span class="dv">800</span>, <span class="dv">400</span>))</span>
-<span id="cb12-7"><a href=""></a>texto <span class="op">=</span> visual.TextStim(win, text<span class="op">=</span><span class="st">"Hola, PsychoPy"</span>)</span>
-<span id="cb12-8"><a href=""></a>texto.draw()</span>
-<span id="cb12-9"><a href=""></a>win.flip()</span>
-<span id="cb12-10"><a href=""></a>core.wait(<span class="fl">1.5</span>)</span>
-<span id="cb12-11"><a href=""></a>win.close()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<!-- 66:00–71:00 (5 min) -->
-</section>
-<section id="pillow-pil-módulo-externo" class="slide level2 center">
-<h2><code>Pillow</code> / <code>PIL</code> (módulo externo)</h2>
-<p>Sirve para: - crear y transformar imágenes - tareas simples de procesamiento de imágenes</p>
-<p>Ejemplo: crear una imagen en memoria y redimensionarla.</p>
-<div id="3e5881e6" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="co"># !pip install pillow</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="im">import</span> turtle</span>
 <span id="cb13-2"><a href=""></a></span>
-<span id="cb13-3"><a href=""></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
+<span id="cb13-3"><a href=""></a>turtle.clearscreen()</span>
 <span id="cb13-4"><a href=""></a></span>
-<span id="cb13-5"><a href=""></a>img <span class="op">=</span> Image.new(<span class="st">"RGB"</span>, (<span class="dv">120</span>, <span class="dv">80</span>), color<span class="op">=</span>(<span class="dv">200</span>, <span class="dv">200</span>, <span class="dv">200</span>))  <span class="co"># imagen gris</span></span>
-<span id="cb13-6"><a href=""></a>img2 <span class="op">=</span> img.resize((<span class="dv">240</span>, <span class="dv">160</span>))</span>
-<span id="cb13-7"><a href=""></a></span>
-<span id="cb13-8"><a href=""></a><span class="bu">print</span>(<span class="st">"tamaño original:"</span>, img.size)</span>
-<span id="cb13-9"><a href=""></a><span class="bu">print</span>(<span class="st">"tamaño nuevo:"</span>, img2.size)</span>
-<span id="cb13-10"><a href=""></a></span>
-<span id="cb13-11"><a href=""></a>img2  <span class="co"># en Jupyter se muestra como imagen</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb13-5"><a href=""></a></span>
+<span id="cb13-6"><a href=""></a>t <span class="op">=</span> turtle.Turtle()</span>
+<span id="cb13-7"><a href=""></a>t.speed(<span class="dv">5</span>)</span>
+<span id="cb13-8"><a href=""></a></span>
+<span id="cb13-9"><a href=""></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
+<span id="cb13-10"><a href=""></a>    t.forward(<span class="dv">60</span>)</span>
+<span id="cb13-11"><a href=""></a>    t.left(<span class="dv">90</span>)</span>
+<span id="cb13-12"><a href=""></a>    t.right(<span class="dv">60</span>)</span>
+<span id="cb13-13"><a href=""></a></span>
+<span id="cb13-14"><a href=""></a>turtle.done()</span>
+<span id="cb13-15"><a href=""></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<!-- 71:00–76:00 (5 min) -->
+<!-- 70:00–72:00 (2 min) -->
 </section>
-<section id="folium-módulo-externo" class="slide level2 center">
-<h2><code>folium</code> (módulo externo)</h2>
-<p>Sirve para: - mapas interactivos - marcadores y capas simples</p>
-<p>Ejemplo: mapa centrado + un marcador.</p>
-<div id="bca4a614" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a><span class="co"># !pip install folium</span></span>
+<section id="psychopy-para-qué-sirve" class="slide level2 center">
+<h2><code>psychopy</code> — ¿para qué sirve?</h2>
+<ul>
+<li class="fragment">Experimentos en psicología (estímulos y tiempos)</li>
+<li class="fragment">Presentación visual/sonora y control de respuesta</li>
+</ul>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Puede requerir instalación y un entorno gráfico compatible.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- 72:00–76:00 (4 min) -->
+</section>
+<section id="psychopy-ejemplo-mínimo" class="slide level2 center">
+<h2><code>psychopy</code> — ejemplo mínimo</h2>
+<p>Ejemplo mínimo: ventana + texto por 1.5 s.</p>
+<div id="01f1b9fd" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a><span class="co"># !pip install psychopy</span></span>
 <span id="cb14-2"><a href=""></a></span>
-<span id="cb14-3"><a href=""></a><span class="im">import</span> folium</span>
+<span id="cb14-3"><a href=""></a><span class="im">from</span> psychopy <span class="im">import</span> visual, core</span>
 <span id="cb14-4"><a href=""></a></span>
-<span id="cb14-5"><a href=""></a><span class="co"># Coordenadas aproximadas (Concepción, Chile)</span></span>
-<span id="cb14-6"><a href=""></a>centro <span class="op">=</span> (<span class="op">-</span><span class="fl">36.8270</span>, <span class="op">-</span><span class="fl">73.0503</span>)</span>
-<span id="cb14-7"><a href=""></a></span>
-<span id="cb14-8"><a href=""></a>m <span class="op">=</span> folium.Map(location<span class="op">=</span>centro, zoom_start<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb14-9"><a href=""></a>folium.Marker(location<span class="op">=</span>centro, popup<span class="op">=</span><span class="st">"Centro"</span>).add_to(m)</span>
-<span id="cb14-10"><a href=""></a></span>
-<span id="cb14-11"><a href=""></a>m</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb14-5"><a href=""></a>win <span class="op">=</span> visual.Window(size<span class="op">=</span>(<span class="dv">800</span>, <span class="dv">400</span>))</span>
+<span id="cb14-6"><a href=""></a>texto <span class="op">=</span> visual.TextStim(win, text<span class="op">=</span><span class="st">"Hola, PsychoPy"</span>)</span>
+<span id="cb14-7"><a href=""></a>texto.draw()</span>
+<span id="cb14-8"><a href=""></a>win.flip()</span>
+<span id="cb14-9"><a href=""></a>core.wait(<span class="fl">1.5</span>)</span>
+<span id="cb14-10"><a href=""></a>win.close()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<!-- 76:00–79:00 (3 min) -->
+<!-- 76:00–78:00 (2 min) -->
 </section>
-<section id="cierre-mapa-mental-de-hoy" class="slide level2 center">
-<h2>Cierre: mapa mental de hoy</h2>
+<section id="pillow-pil-para-qué-sirve" class="slide level2 center">
+<h2><code>Pillow (PIL)</code> — ¿para qué sirve?</h2>
+<ul>
+<li class="fragment">Crear y transformar imágenes</li>
+<li class="fragment">Operaciones simples (tamaño, recorte, conversión)</li>
+</ul>
+<p>Hoy: todo en memoria, sin enseñar lectura/escritura de archivos.</p>
+<!-- 78:00–82:00 (4 min) -->
+</section>
+<section id="pillow-pil-ejemplo-mínimo" class="slide level2 center">
+<h2><code>Pillow (PIL)</code> — ejemplo mínimo</h2>
+<p>Creamos una imagen y la redimensionamos.</p>
+<div id="3e5881e6" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="co"># !pip install pillow</span></span>
+<span id="cb15-2"><a href=""></a></span>
+<span id="cb15-3"><a href=""></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
+<span id="cb15-4"><a href=""></a></span>
+<span id="cb15-5"><a href=""></a>img <span class="op">=</span> Image.new(<span class="st">"RGB"</span>, (<span class="dv">120</span>, <span class="dv">80</span>), color<span class="op">=</span>(<span class="dv">200</span>, <span class="dv">200</span>, <span class="dv">200</span>))  <span class="co"># imagen gris</span></span>
+<span id="cb15-6"><a href=""></a>img2 <span class="op">=</span> img.resize((<span class="dv">240</span>, <span class="dv">160</span>))</span>
+<span id="cb15-7"><a href=""></a></span>
+<span id="cb15-8"><a href=""></a><span class="bu">print</span>(<span class="st">"tamaño original:"</span>, img.size)</span>
+<span id="cb15-9"><a href=""></a><span class="bu">print</span>(<span class="st">"tamaño nuevo:"</span>, img2.size)</span>
+<span id="cb15-10"><a href=""></a></span>
+<span id="cb15-11"><a href=""></a>img2  <span class="co"># en Jupyter se muestra como imagen</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tamaño original: (120, 80)
+tamaño nuevo: (240, 160)</code></pre>
+</div>
+
+</div>
+<!-- 82:00–84:00 (2 min) -->
+<img data-src="clase5_files/figure-revealjs/cell-13-output-2.png" class="r-stretch"></section>
+<section id="folium-para-qué-sirve" class="slide level2 center">
+<h2><code>folium</code> — ¿para qué sirve?</h2>
+<ul>
+<li class="fragment">Mapas interactivos</li>
+<li class="fragment">Marcadores y capas simples</li>
+<li class="fragment">Útil para datos geográficos (geo)</li>
+</ul>
+<!-- 84:00–88:00 (4 min) -->
+</section>
+<section id="folium-ejemplo-mínimo" class="slide level2 center">
+<h2><code>folium</code> — ejemplo mínimo</h2>
+<p>Mapa centrado en coordenadas + un marcador.</p>
+<div id="bca4a614" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a><span class="co"># !pip install folium</span></span>
+<span id="cb17-2"><a href=""></a></span>
+<span id="cb17-3"><a href=""></a><span class="im">import</span> folium</span>
+<span id="cb17-4"><a href=""></a></span>
+<span id="cb17-5"><a href=""></a>centro <span class="op">=</span> (<span class="op">-</span><span class="fl">36.8270</span>, <span class="op">-</span><span class="fl">73.003</span>)</span>
+<span id="cb17-6"><a href=""></a></span>
+<span id="cb17-7"><a href=""></a>m <span class="op">=</span> folium.Map(location<span class="op">=</span>centro, zoom_start<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb17-8"><a href=""></a>folium.Marker(location<span class="op">=</span>centro, popup<span class="op">=</span><span class="st">"Centro"</span>).add_to(m)</span>
+<span id="cb17-9"><a href=""></a></span>
+<span id="cb17-10"><a href=""></a>m</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -&gt; Trust Notebook</span><iframe srcdoc="<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; />
+    <script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;></script>
+    <script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;></script>
+    <script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;></script>
+    <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;></script>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/>
+    
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; />
+            <style>
+                #map_b56993f146bdc89cdda44cdbec77b7db {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class=&quot;folium-map&quot; id=&quot;map_b56993f146bdc89cdda44cdbec77b7db&quot; ></div>
+        
+</body>
+<script>
+    
+    
+            var map_b56993f146bdc89cdda44cdbec77b7db = L.map(
+                &quot;map_b56993f146bdc89cdda44cdbec77b7db&quot;,
+                {
+                    center: [-36.827, -73.003],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  &quot;zoom&quot;: 12,
+  &quot;zoomControl&quot;: true,
+  &quot;preferCanvas&quot;: false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_01cd508d298611a879e0cd0b5943fc39 = L.tileLayer(
+                &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
+                {
+  &quot;minZoom&quot;: 0,
+  &quot;maxZoom&quot;: 19,
+  &quot;maxNativeZoom&quot;: 19,
+  &quot;noWrap&quot;: false,
+  &quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors&quot;,
+  &quot;subdomains&quot;: &quot;abc&quot;,
+  &quot;detectRetina&quot;: false,
+  &quot;tms&quot;: false,
+  &quot;opacity&quot;: 1,
+}
+
+            );
+        
+    
+            tile_layer_01cd508d298611a879e0cd0b5943fc39.addTo(map_b56993f146bdc89cdda44cdbec77b7db);
+        
+    
+            var marker_2ebe721ed5a56584cbb8e3c72f7228e0 = L.marker(
+                [-36.827, -73.003],
+                {
+}
+            ).addTo(map_b56993f146bdc89cdda44cdbec77b7db);
+        
+    
+        var popup_35be6d8d12cffca75435384f689e9154 = L.popup({
+  &quot;maxWidth&quot;: &quot;100%&quot;,
+});
+
+        
+            
+                var html_5d24975a5e624c5d720f96ba6b0e86a5 = $(`<div id=&quot;html_5d24975a5e624c5d720f96ba6b0e86a5&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Centro</div>`)[0];
+                popup_35be6d8d12cffca75435384f689e9154.setContent(html_5d24975a5e624c5d720f96ba6b0e86a5);
+            
+        
+
+        marker_2ebe721ed5a56584cbb8e3c72f7228e0.bindPopup(popup_35be6d8d12cffca75435384f689e9154)
+        ;
+
+        
+    
+</script>
+</html>" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe></div></div>
+</div>
+</div>
+<!-- 88:00–92:00 (4 min) -->
+</section>
+<section id="cierre" class="slide level2 center">
+<h2>Cierre</h2>
 <ul>
 <li class="fragment">Importar una función: <code>from modulo import funcion</code></li>
 <li class="fragment">Evitar <code>from modulo import *</code></li>
 <li class="fragment">Módulos externos: instalar con <code>!pip install ...</code></li>
 <li class="fragment">NumPy: <code>range</code> vs <code>linspace</code> (paso vs número de puntos)</li>
 <li class="fragment">Demos: <code>turtle</code> (dibujo), <code>psychopy</code> (experimentos), <code>PIL</code> (imágenes), <code>folium</code> (mapas)</li>
-</ul>
-<!-- 79:00–80:00 (1 min) -->
-</section>
-<section id="micropregunta-final" class="slide level2 center">
-<h2>Micro‑pregunta final</h2>
-<p>Si necesitas…</p>
-<ul>
-<li class="fragment">“un conjunto de puntos igualmente espaciados entre 0 y 1” → ¿qué usarías?</li>
-<li class="fragment">“un mapa con un marcador” → ¿qué módulo?</li>
 </ul>
 
 </section></section>
