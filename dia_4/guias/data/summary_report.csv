@@ -1,0 +1,5 @@
+metric,value,source
+Geology: mean porosity (porosity ≥ 0.20),0.269,geology_samples.csv
+"Micro: mean OD600 at final time (WT, 37°C, time=5h)",0.241,micro_growth.csv
+Sociology: mean satisfaction (remote_days < 3),4.615,survey.csv
+Sociology: mean satisfaction (remote_days ≥ 3),6.667,survey.csv
